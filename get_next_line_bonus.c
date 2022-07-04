@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 06:22:05 by melkholy          #+#    #+#             */
-/*   Updated: 2022/07/04 08:01:06 by melkholy         ###   ########.fr       */
+/*   Updated: 2022/07/04 07:33:18 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_findnewl(const char *str, int c)
 {
@@ -97,16 +97,16 @@ char	*ft_readit(int fd, char *read_in)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[1024];
 	char		*read_in;
 
 	read_in = NULL;
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE < 1)
 		return (NULL);
-	line = ft_readit(fd, line);
-	if (!line)
+	line[fd] = ft_readit(fd, line[fd]);
+	if (!line[fd])
 		return (NULL);
-	read_in = ft_cut_tonline(line);
-	line = ft_cut_remain(line);
+	read_in = ft_cut_tonline(line[fd]);
+	line[fd] = ft_cut_remain(line[fd]);
 	return (read_in);
 }
