@@ -16,13 +16,13 @@ in Linux operating system.
 |External functs|read, malloc, free|
 |Description|A function that returns a line read from a<br />file descriptor|
 
->Basically `get_next_line(fd)` keeps reading form the provided file descriptor until 
->it encounters new line character `\n` then return it as a string, it also keeps
->track of the file if you try to use it again it would get you the next available line "DA ;)"
+Basically `get_next_line(fd)` keeps reading form the provided file descriptor until 
+it encounters new line character `\n` then return it as a string, it also keeps
+track of the file if you try to use it again it would get you the next available line "DA ;)"
 
->If you use the bonus files instead of the main files you gain the functionality of using different 
->file descriptors after each other while `get_next_line(fd)` keeps track of each one of them, so you 
->you can go back and continue reading any of them from the stop point from the last call of 
->`get_next_line(fd)`
+If you use the bonus files instead of the main files you gain the functionality of using different 
+file descriptors after each other while `get_next_line(fd)` keeps track of each one of them, so you 
+you can go back and continue reading any of them from the stop point from the last call of 
+`get_next_line(fd)`
 
-If you have any optimization idea about the code please let me know :)
+>If you have any optimization idea about the code please let me know :)
